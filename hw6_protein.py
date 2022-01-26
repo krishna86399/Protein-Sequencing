@@ -307,8 +307,8 @@ Returns: None
 def createChart(xLabels, freqList1, label1, freqList2, label2, edgeList=None):
     import matplotlib.pyplot as plt
     w = 0.35  # the width of the bars
-    plt.bar(xLabels, freqList1, width=-w, align='edge', label=label1,edgecolor=edgeList)
-    plt.bar(xLabels, freqList2, width=w, align='edge', label=label2,edgecolor=edgeList) 
+    plt.bar(xLabels, freqList1, width=-w, align='edge', label=label1)
+    plt.bar(xLabels, freqList2, width=w, align='edge', label=label2) 
     title="side by side bar plot"
     plt.xticks(rotation="horizontal")
     plt.legend()
