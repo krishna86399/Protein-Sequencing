@@ -232,6 +232,7 @@ def displayTextResults(commonalities, differences):
         if len(protein)==1:
                 print(protein[0])
         if len(protein)>1:
+
             proStr=""
             for i in range(len(protein)-1):
                 proStr=proStr+protein[i]+"-"
@@ -263,8 +264,17 @@ Parameters: 2D list of strs ; 2D list of strs
 Returns: list of strs
 '''
 def makeAminoAcidLabels(proteinList1, proteinList2):
-    return
+    aminoAcids1=combineProteins(proteinList1)
+    aminoAcids2=combineProteins(proteinList2)
+    uniqueAminoAcids=[]
+    for amino in aminoAcids1+aminoAcids2:
+        if amino not in uniqueAminoAcids:
+            uniqueAminoAcids.append(amino)
+        else: continue
+    uniqueAminoAcids.sort()
+    return uniqueAminoAcids
 
+   
 
 '''
 setupChartData(labels, proteinList)
@@ -318,16 +328,16 @@ if __name__ == "__main__":
 
     ## Uncomment these for Week 2 ##
     
-    print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
-    test.week2Tests()
-    print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
-    runWeek2()
+    # print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
+    # test.week2Tests()
+    # print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
+    # runWeek2()
     
 
     ## Uncomment these for Week 3 ##
-    """
+  
     print("\n" + "#"*15 + " WEEK 3 TESTS " +  "#" * 16 + "\n")
     test.week3Tests()
     print("\n" + "#"*15 + " WEEK 3 OUTPUT " + "#" * 15 + "\n")
     runFullProgram()
-    """
+    
