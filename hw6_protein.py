@@ -17,8 +17,15 @@ Parameters: str
 Returns: str
 '''
 def readFile(filename):
-    return
+    openFile=open(filename,"r")
+    text = openFile.read()
+    lines=text.splitlines()
+    dna=""
+    for i in range(len(lines)):
+        dna+=lines[i]
+    return dna
 
+   
 
 '''
 dnaToRna(dna, startIndex)
