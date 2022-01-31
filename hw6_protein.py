@@ -17,8 +17,15 @@ Parameters: str
 Returns: str
 '''
 def readFile(filename):
-    return
+    openFile=open(filename,"r")
+    text = openFile.read()
+    lines=text.splitlines()
+    dna=""
+    for i in range(len(lines)):
+        dna+=lines[i]
+    return dna
 
+   
 
 '''
 dnaToRna(dna, startIndex)
@@ -27,7 +34,21 @@ Parameters: str ; int
 Returns: list of strs
 '''
 def dnaToRna(dna, startIndex):
-    return
+    codons=[]
+    rna=[]
+    dna=dna.replace('T','U')
+    for i in range(startIndex,len(dna),3):
+        codons.append(dna[i:i+3])
+    RNAstartIndex=codons.index("AUG")
+    for i in range(RNAstartIndex,len(codons)):
+        if codons[i] in ["UAA","UAG","UGA"]:
+            rna.append(codons[i])
+            break
+        rna.append(codons[i])
+    return rna
+
+
+   
 
 
 '''
